@@ -29,7 +29,7 @@ $materiel = $statement->fetchAll(PDO::FETCH_ASSOC);
 <body>
 <div class="container mt-5">
         <h3 class="mb-4">Liste des materiels</h3>
-        <a href="add_new.php" class="btn btn-success mb-3">Add new</a>
+        <a href="create.php" class="btn btn-success mb-3">Add new</a>
         <table class="table">
             <thead>
                 <tr>

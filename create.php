@@ -63,52 +63,74 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
 <body>
-    <h1>Ajouter</h1>
-       
-   <?php if (!empty($errors)): ?>
-    <div class="alert alert-danger">
+    <?php if (!empty($errors)): ?>
+     <div class="alert alert-danger">
         <?php foreach ($errors as $error): ?>
             <div><?php echo $error ?></div>
-        <?php endforeach; ?>
-    </div>
-<?php endif;?>
+            <?php endforeach; ?>
+     </div>
+    <?php endif;?>
 
-    <form method="post" enctype="multipart/form-data">
+    <div class="container mt-5">
+        <h1>Ajouter</h1>
+        <div class="container d-flex">
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col mt-3">
+                  <label>Image</label><br>
+                  <input type="file" class="form-control" name="image">
+                </div>
+                <div class="col mt-3">
+                  <label>Model</label>
+                  <input type="text" name="model" class="form-control"  value="<?php echo $model ?>" required  >
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col mt-3">
+                <label>Catégorie</label>
+                <input type="text"  name="categorie" class="form-control"  value="<?php echo $categorie ?>" required>
+                </div>
+                <div class="col mt-3">
+                <label>brand</label>
+                <input type="text"  name="brand" class="form-control"value="<?php echo $brand ?>" required>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col mt-3">
+                <label>Qty</label>
+                <input type="number"  name="qty" class="form-control" value="<?php echo $qty ?>" required>
+                </div>
+                <div class="col mt-3">
+                <label>Qty lef</label>
+                <input type="number"  name="qty_lef" class="form-control" value="<?php echo $qty_lef ?>" required>
+                </div>
+            </div>    
+                    
+            <div class="form-group md-3 mt-3">
+                <label for="">Status</label>
+                <input type="radio" class="form-check-input" name="status" id="nouveau" value="nouveau">
+                <label for="nouveau" class="form-input-label">Nouveau</label>
+                &nbsp;
+                <input type="radio" class="form-check-input" name="status" id="ancien" value="ancien">
+                <label for="ancien" class="form-input-label">Ancien</label>
+            </div>
+               <button type="submit" class="btn btn-primary mt-3">Enregistrer</button>
+            </form>
+        </div>  
+    </div>
 
-    <div class="form-group">
-        <label>Image</label><br>
-        <input type="file" name="image">
-    </div>
-    <div class="form-group">
-        <label>Model</label>
-        <input type="text" name="model" class="form-control"  value="<?php echo $model ?>" required  >
-    </div>
-   
-    <div class="form-group">
-        <label>Catégorie</label>
-        <input type="text"  name="categorie" class="form-control"  value="<?php echo $categorie ?>" required>
-    </div>
 
-    <div class="form-group">
-        <label>brand</label>
-        <input type="text"  name="brand" class="form-control"value="<?php echo $brand ?>" required>
-    </div>
-
-    <div class="form-group">
-        <label>Qty</label>
-        <input type="number"  name="qty" class="form-control" value="<?php echo $qty ?>" required>
-    </div>
-    <div class="form-group">
-        <label>Qty lef</label>
-        <input type="number"  name="qty_lef" class="form-control" value="<?php echo $qty_lef ?>" required>
-    </div>
-    <div class="form-group">
-        <label>Status</label>
-        <input type="text"  name="status" class="form-control" value="<?php echo $status ?>" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
-</form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
 
