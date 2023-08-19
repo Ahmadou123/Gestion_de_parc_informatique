@@ -29,6 +29,12 @@ $materiel = $statement->fetchAll(PDO::FETCH_ASSOC);
 <body>
 <div class="container mt-5">
         <h3 class="mb-4">Liste des materiels</h3>
+        <form action="">
+ <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Rechercher un materiel" name="search" value="<?php echo $search ?>">
+  <button class="btn btn-outline-success" type="submit">Rechercher</button>
+</div>
+ </form>
         <a href="create.php" class="btn btn-success mb-3">Add new</a>
         <table class="table">
             <thead>
